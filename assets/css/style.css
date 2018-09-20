@@ -1,3 +1,5 @@
+/* KEYBOARD STYLING FROM CODEPEN */
+
 * {
   box-sizing: border-box;
 }
@@ -6,6 +8,7 @@ body {
   margin: 0;
   background: #fff;
 }
+
 ul {
   vertical-align: bottom;
   height: 18.875em;
