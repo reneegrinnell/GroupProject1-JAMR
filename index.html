@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+<!-- CSS reset -->
+<link rel="stylesheet" href="assets/css/reset.css">
+
   <!-- pull Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
@@ -17,6 +20,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.8/Tone.js" integrity="sha256-naTV/LhDwsz+OlK3sI09fOYfIIu1yy85XA8KS9skb7c="
     crossorigin="anonymous"></script>
 
+    <!-- pull Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Permanent+Marker" rel="stylesheet">
+
   <!-- pull local CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -25,22 +31,14 @@
 
 <body>
 
-  <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">JAMR</h1>
+            <h2 class="cursive">a collaborative audiovisual experience</h2>
+          </div>
+        </div>
 
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <h2>The Ron Swanson Gif Grabber &trade;</h2>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#speeches">GIF ME!</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/reneegrinnell/GifTastic">GitHub</a>
-      </li>
-    </ul>
-
-    <div class="jumbotron"></div>
-
+        <div class="container">
     <div id="keyboard">
     <ul class="set">
       <!-- uncomment below for an octave below the middle octave -->
@@ -76,7 +74,15 @@
     </ul>
     </div>
 
-  </div>
+    </div>
+
+    <div id = "footer" class="cursive">
+        &copy; David, James, Jeremy, & Renée 2018
+        <br>
+        <a href ="https://reneegrinnell.github.io/GroupProject1/">GitHub</a>
+    </div>
+
+  
 
   <!-- pull local JavaScript -->
   <script src="assets/javascript/javascript.js"></script>
