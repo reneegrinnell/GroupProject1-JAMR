@@ -14,30 +14,44 @@ var database = firebase.database();
 
 
 //create a synth and connect it to the master output (your speakers)
-var synth = new Tone.Synth().toMaster();
-//play a middle 'C' for the duration of an 8th note
-var c3 = "C3";
-// var cs3 = 'CS3' // don't know the naming convention for sharp notes
-var d3 = "D3";
+var synth = new Tone.AMSynth().toMaster();
 
-synth.triggerAttackRelease(c3, "4n");
+// store tone.js notes as variables
+var c4 = "C4";
+var cs4 = "C#4";
+var d4 = "D4";
+var ds4 = "D#4";
+var e4 = "E4";
+var f4 = "F4";
+var fs4 = "F#4";
+var g4 = "G4";
+var gs4 = "G#4";
+var a4 = "A4";
+var as4 = "A#4";
+var b4 = "B4";
 
-$("#c3").on("click", function() { 
+
+//$("#c3").on("click", function () {
     //changed to test C4 on CSS keyboard
-    console.log(this);
-    synth.triggerAttackRelease(c3, "4n");
-});
+    //synth.triggerAttackRelease(c3, "4n");
+//});
 
-$("#d3").on("click", function() {
-    synth.triggerAttackRelease(d3, "4n");
-    
-});
+//$("#d3").on("click", function () {
+    //synth.triggerAttackRelease(d3, "4n");
+
+//});
 
 //Send to Database
-
 database.ref().on("value", function (snapshot) {
     console.log(snapshot.val());
+});
 
-    //Continue code here
+// synth.triggerAttackRelease(c4, "4n"); // plays "C4" for duration of a quarter note
 
+$(document).keydown(function () {
+    synth.triggerAttackRelease(c4);
+});
+
+$(document).keyup(function () {
+    synth.triggerRelease();
 });
