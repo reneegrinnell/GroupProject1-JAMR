@@ -49,6 +49,7 @@ ul .white {
   box-shadow: -1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset,
     0 0 3px rgba(0, 0, 0, 0.2);
   background: linear-gradient(top, #eee 0%, #fff 100%);
+  background-color: #fff;
 }
 
 ul .white:active {
@@ -58,6 +59,7 @@ ul .white:active {
   box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset,
     -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
   background: linear-gradient(top, #fff 0%, #e9e9e9 100%);
+  background-color: #fff;
 }
 
 .black {
@@ -101,8 +103,15 @@ ul li:nth-child(13),
 }
 
 /* Other styles */
+
+a {
+  color: #808080 !important;
+}
+
 .jumbotron {
   padding-top: .8em;
+  color: #fff;
+  background: linear-gradient(45deg, #222 0%, #555 100%);
 }
 
 .display-4 {
@@ -113,6 +122,11 @@ ul li:nth-child(13),
 .cursive {
   font-family: 'Cedarville Cursive', cursive;
 }
+
+fas {
+  color: #fff;
+  font-size: 8px !important;
+  }
 
 #footer {
   clear: both;
