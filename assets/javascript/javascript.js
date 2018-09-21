@@ -1,16 +1,16 @@
 //create a synth and connect it to the master output (your speakers)
-var synth = new Tone.Synth().toMaster();
-//play a middle 'C' for the duration of an 8th note
-var c3 = "C3";
-// var cs3 = 'CS3' // don't know the naming convention for sharp notes
-var d3 = "D3";
+var synth = new Tone.AMSynth().toMaster();
 
-synth.triggerAttackRelease(c3, "4n");
+// store tone.js notes as variables
+var c4 = "C4";
+var cs4 = "C#4";
+var d4 = "D4";
 
-$(document).on("click", "#c4", function() { // changed to test C4 on CSS keyboard
-  synth.triggerAttackRelease(c3, "4n");
+// synth.triggerAttackRelease(c4, "4n"); // plays "C4" for duration of a quarter note
+$(document).keydown(function() {
+  synth.triggerAttack(cs4);
 });
 
-$(document).on("click", "#d3", function() {
-  synth.triggerAttackRelease(d3, "4n");
+$(document).keyup(function() {
+  synth.triggerRelease();
 });
