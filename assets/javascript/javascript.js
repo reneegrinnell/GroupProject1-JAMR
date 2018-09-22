@@ -14,128 +14,245 @@ var database = firebase.database();
 
 
 //create a synth and connect it to the master output (your speakers)
-var synth = new Tone.AMSynth().toMaster();
+var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
 
-// store tone.js notes as variables
-var c4 = "C4";
-var cs4 = "C#4";
-var d4 = "D4";
-var ds4 = "D#4";
-var e4 = "E4";
-var f4 = "F4";
-var fs4 = "F#4";
-var g4 = "G4";
-var gs4 = "G#4";
-var a4 = "A4";
-var as4 = "A#4";
-var b4 = "B4";
-var c5 = "C5";
+// store tone.js notes in a key object
 
-
-//$("#c3").on("click", function () {
-//changed to test C4 on CSS keyboard
-//synth.triggerAttackRelease(c3, "4n");
-//});
-
-//$("#d3").on("click", function () {
-//synth.triggerAttackRelease(d3, "4n");
-
-//});
-
-//Send to Database
-// database.ref().on("value", function (snapshot) {
-//     console.log(snapshot.val());
-// });
-
-// each key in the qwerty row is assigned a chromatic tone moving from left to right
+var key = {
+    c4Value: "C4",
+    cs4Value: "C#4",
+    d4Value: "D4",
+    ds4Value: "D#4",
+    e4Value: "E4",
+    f4Value: "F4",
+    fs4Value: "F#4",
+    g4Value: "G4",
+    gs4Value: "G#4",
+    a4Value: "A4",
+    as4Value: "A#4",
+    b4Value: "B4",
+    c5Value: "C5",
+}
 
 $(document).keydown(function () {
     if (event.which == 81) {
-        synth.triggerAttackRelease(c4)
-        // database.ref().set({
-        //     c4Value: true
-        // });
-    }
-    if (event.which == 87) {
-        synth.triggerAttackRelease(cs4);
-        // database.ref().set({
-        //     cs4Value: true
-        // });
-    }
-    if (event.which == 69) {
-        synth.triggerAttackRelease(d4);
-        // database.ref().set({
-        //     d4Value: true
-        // });
-    }
-    if (event.which == 82) {
-        synth.triggerAttackRelease(ds4);
-        // database.ref().set({
-        //     ds4Value: true
-        // });
-    }
-    if (event.which == 84)
-        synth.triggerAttackRelease(e4);
-    // database.ref().set({
-    //     e4Value: true
-    // });
-    if (event.which == 89)
-        synth.triggerAttackRelease(f4);
-    // database.ref().set({
-    //     f4Value: true
-    // });
-    if (event.which == 85)
-        synth.triggerAttackRelease(fs4);
-    // database.ref().set({
-    //     fs4Value: true
-    // });
-    if (event.which == 73)
-        synth.triggerAttackRelease(g4);
-    // database.ref().set({
-    //     g4Value: true
-    // });
-    if (event.which == 79)
-        synth.triggerAttackRelease(gs4);
-    // database.ref().set({
-    //     gs4Value: true
-    // });
-    if (event.which == 80)
-        synth.triggerAttackRelease(a4);
-    // database.ref().set({
-    //     a4Value: true
-    // });
-    if (event.which == 219)
-        synth.triggerAttackRelease(as4);
-    // database.ref().set({
-    //     as4Value: true
-    // });
-    if (event.which == 221)
-        synth.triggerAttackRelease(b4);
-    // database.ref().set({
-    //     b4Value: true
-    // });
-
-    if (event.which == 220)
-        // synth.triggerAttackRelease(c5);
-    database.ref().set({
-        c5Value: true
-    });
-
-    $(document).keyup(function () {
-        synth.triggerRelease();
-        database.ref().set({
-            c5Value: false
+        database.ref().update({
+            c4Value: true
         });
-    });
-    database.ref().on('value', function (snapshot) {
-        c5Value = snapshot.val();
-        console.log(c5Value);
-        if (c5Value) {
-            synth.triggerAttackRelease(c5);
-            console.log('here');
-        }
-        else synth.triggerRelease();
-
-    });
+    }
 });
 
+$(document).keydown(function () {
+
+    if (event.which == 87) {
+        database.ref().update({
+            cs4Value: true
+        });
+    }
+});
+$(document).keydown(function () {
+
+    if (event.which == 69) {
+        database.ref().update({
+            d4Value: true
+        });
+    }
+});
+
+$(document).keydown(function () {
+
+    if (event.which == 82) {
+        database.ref().update({
+            ds4Value: true
+        });
+    }
+});
+
+$(document).keydown(function () {
+    if (event.which == 84)
+        database.ref().update({
+            e4Value: true
+        });
+});
+
+$(document).keydown(function () {
+    if (event.which == 89)
+        database.ref().update({
+            f4Value: true
+        });
+});
+
+$(document).keydown(function () {
+    if (event.which == 85)
+        database.ref().update({
+            fs4Value: true
+        });
+});
+
+$(document).keydown(function () {
+    if (event.which == 73)
+        database.ref().update({
+            g4Value: true
+        });
+});
+
+$(document).keydown(function () {
+    if (event.which == 79)
+        database.ref().update({
+            gs4Value: true
+        });
+});
+
+$(document).keydown(function () {
+    if (event.which == 80)
+        database.ref().update({
+            a4Value: true
+        });
+});
+
+$(document).keydown(function () {
+    if (event.which == 219)
+        database.ref().update({
+            as4Value: true
+        });
+});
+
+$(document).keydown(function () {
+    if (event.which == 221)
+        database.ref().update({
+            b4Value: true
+        });
+});
+
+$(document).keydown(function () {
+
+    if (event.which == 220)
+        database.ref().update({
+            c5Value: true
+        });
+});
+
+$(document).keyup(function () {
+    if (event.which == 81) {
+        database.ref().update({
+            c4Value: false
+        });
+    }
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 87) {
+        database.ref().update({
+            cs4Value: false
+        });
+    }
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 69) {
+        database.ref().update({
+            d4Value: false
+        });
+    }
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 82) {
+        database.ref().update({
+            ds4Value: false
+        });
+    }
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 84)
+        database.ref().update({
+            e4Value: false
+        });
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 89)
+        database.ref().update({
+            f4Value: false
+        });
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 85)
+        database.ref().update({
+            fs4Value: false
+        });
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 73)
+        database.ref().update({
+            g4Value: false
+        });
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 79)
+        database.ref().update({
+            gs4Value: false
+        });
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 80)
+        database.ref().update({
+            a4Value: false
+        });
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 219)
+        database.ref().update({
+            as4Value: false
+        });
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 221)
+        database.ref().update({
+            b4Value: false
+        });
+});
+
+$(document).keyup(function () {
+
+    if (event.which == 220)
+        database.ref().update({
+            c5Value: false
+        });
+});
+
+database.ref().on('value', function (snapshot) {
+
+    var notes = snapshot.val();
+    var synthID = "";
+    var value = false;
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values
+    for (var name in notes) {
+        synthID = key[name];
+        value = notes[name];
+        if (value){
+            synth.triggerAttack(synthID);
+        }
+        else {
+            synth.triggerRelease(synthID);
+        }
+    }
+});
