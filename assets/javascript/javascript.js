@@ -43,58 +43,99 @@ var c5 = "C5";
 //});
 
 //Send to Database
-database.ref().on("value", function (snapshot) {
-    console.log(snapshot.val());
-});
+// database.ref().on("value", function (snapshot) {
+//     console.log(snapshot.val());
+// });
 
 // each key in the qwerty row is assigned a chromatic tone moving from left to right
 
 $(document).keydown(function () {
-    if (event.which == 81)
-        synth.triggerAttackRelease(c4);
-    if (event.which == 87)
+    if (event.which == 81) {
+        synth.triggerAttackRelease(c4)
+        // database.ref().set({
+        //     c4Value: true
+        // });
+    }
+    if (event.which == 87) {
         synth.triggerAttackRelease(cs4);
-    if (event.which == 69)
+        // database.ref().set({
+        //     cs4Value: true
+        // });
+    }
+    if (event.which == 69) {
         synth.triggerAttackRelease(d4);
-    if (event.which == 82)
+        // database.ref().set({
+        //     d4Value: true
+        // });
+    }
+    if (event.which == 82) {
         synth.triggerAttackRelease(ds4);
+        // database.ref().set({
+        //     ds4Value: true
+        // });
+    }
     if (event.which == 84)
         synth.triggerAttackRelease(e4);
+    // database.ref().set({
+    //     e4Value: true
+    // });
     if (event.which == 89)
         synth.triggerAttackRelease(f4);
+    // database.ref().set({
+    //     f4Value: true
+    // });
     if (event.which == 85)
         synth.triggerAttackRelease(fs4);
+    // database.ref().set({
+    //     fs4Value: true
+    // });
     if (event.which == 73)
         synth.triggerAttackRelease(g4);
+    // database.ref().set({
+    //     g4Value: true
+    // });
     if (event.which == 79)
         synth.triggerAttackRelease(gs4);
+    // database.ref().set({
+    //     gs4Value: true
+    // });
     if (event.which == 80)
         synth.triggerAttackRelease(a4);
+    // database.ref().set({
+    //     a4Value: true
+    // });
     if (event.which == 219)
         synth.triggerAttackRelease(as4);
+    // database.ref().set({
+    //     as4Value: true
+    // });
     if (event.which == 221)
         synth.triggerAttackRelease(b4);
+    // database.ref().set({
+    //     b4Value: true
+    // });
+
     if (event.which == 220)
-        synth.triggerAttackRelease(c5);
+        // synth.triggerAttackRelease(c5);
+    database.ref().set({
+        c5Value: true
+    });
 
     $(document).keyup(function () {
         synth.triggerRelease();
+        database.ref().set({
+            c5Value: false
+        });
     });
+    database.ref().on('value', function (snapshot) {
+        c5Value = snapshot.val();
+        console.log(c5Value);
+        if (c5Value) {
+            synth.triggerAttackRelease(c5);
+            console.log('here');
+        }
+        else synth.triggerRelease();
 
-    // Grab the values from the form
-    var trainName = $("#TrainNameField").val();
-    var trainDest = $("#DestinationField").val();
-    var trainTime = $("#TrainTimeField").val();
-    var trainFreq = parseInt($("#FrequencyField").val());
-
-    //*********************************************************************************************/
-    // Push the record into the database
-    //*********************************************************************************************/
-    database.ref().push({
-        trainName: trainName,
-        trainDest: trainDest,
-        trainTime: trainTime,
-        trainFreq: trainFreq,
     });
 });
 
