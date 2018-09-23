@@ -19,6 +19,54 @@ var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
 // store tone.js notes in a key object
 
 var key = {
+    c3Value: {
+        'tone': "C3",
+        'button': 65
+    },
+    cs3Value: {
+        'tone': "C#3",
+        'button': 83
+    },
+    d3Value: {
+        'tone': "D3",
+        'button': 68
+    },
+    ds3Value: {
+        'tone': "D#3",
+        'button': 70
+    },
+    e3Value: {
+        'tone': "E3",
+        'button': 71
+    },
+    f3Value: {
+        'tone': "F3",
+        'button': 72
+    },
+    fs3Value: {
+        'tone': "F#3",
+        'button': 74
+    },
+    g3Value: {
+        'tone': "G3",
+        'button': 75
+    },
+    gs3Value: {
+        'tone': "G#3",
+        'button': 76
+    },
+    a3Value: {
+        'tone': "A3",
+        'button': 186
+    },
+    as3Value: {
+        'tone': "A#3",
+        'button': 222
+    },
+    b3Value: {
+        'tone': "B3",
+        'button': 13
+    },
     c4Value: {
         'tone': "C4",
         'button': 81
@@ -70,8 +118,57 @@ var key = {
     c5Value: {
         'tone': "C5",
         'button': 220
+    },
+    cs5Value: {
+        'tone': "C#5",
+        'button': 49
+    },
+    d5Value: {
+        'tone': "D5",
+        'button': 50
+    },
+    ds5Value: {
+        'tone': "D#5",
+        'button': 51
+    },
+    e5Value: {
+        'tone': "E5",
+        'button': 52
+    },
+    f5Value: {
+        'tone': "F5",
+        'button': 53
+    },
+    fs5Value: {
+        'tone': "F#5",
+        'button': 54
+    },
+    g5Value: {
+        'tone': "G5",
+        'button': 55
+    },
+    gs5Value: {
+        'tone': "G#5",
+        'button': 56
+    },
+    a5Value: {
+        'tone': "A5",
+        'button': 57
+    },
+    as5Value: {
+        'tone': "A#5",
+        'button': 48
+    },
+    b5Value: {
+        'tone': "B5",
+        'button': 189
+    },
+    c6Value: {
+        'tone': "C6",
+        'button': 187
     }
 }
+
 // function for keydown events
 $(document).keydown(function () {
     // variable is set to the numeric value of the particular key pressed
