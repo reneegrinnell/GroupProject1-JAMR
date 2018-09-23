@@ -19,238 +19,111 @@ var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
 // store tone.js notes in a key object
 
 var key = {
-    c4Value: "C4",
-    cs4Value: "C#4",
-    d4Value: "D4",
-    ds4Value: "D#4",
-    e4Value: "E4",
-    f4Value: "F4",
-    fs4Value: "F#4",
-    g4Value: "G4",
-    gs4Value: "G#4",
-    a4Value: "A4",
-    as4Value: "A#4",
-    b4Value: "B4",
-    c5Value: "C5",
+    c4Value: {
+        'tone': "C4",
+        'button': 81
+    },
+    cs4Value: {
+        'tone': "C#4",
+        'button': 87
+    },
+    d4Value: {
+        'tone': "D4",
+        'button': 69
+    },
+    ds4Value: {
+        'tone': "D#4",
+        'button': 82
+    },
+    e4Value: {
+        'tone': "E4",
+        'button': 84
+    },
+    f4Value: {
+        'tone': "F4",
+        'button': 89
+    },
+    fs4Value: {
+        'tone': "F#4",
+        'button': 85
+    },
+    g4Value: {
+        'tone': "G4",
+        'button': 73
+    },
+    gs4Value: {
+        'tone': "G#4",
+        'button': 79
+    },
+    a4Value: {
+        'tone': "A4",
+        'button': 80
+    },
+    as4Value: {
+        'tone': "A#4",
+        'button': 219
+    },
+    b4Value: {
+        'tone': "B4",
+        'button': 221
+    },
+    c5Value: {
+        'tone': "C5",
+        'button': 220
+    }
 }
-
+// function for keydown events
 $(document).keydown(function () {
-    if (event.which == 81) {
-        database.ref().update({
-            c4Value: true
-        });
-    }
+    // variable is set to the numeric value of the particular key pressed
+    var whichKey = event.which;
+    // runs a loop over each object in the array
+    for (var i in key) {
+        // if the button value of the object matches the value of the key pressed ...
+        if (whichKey == key[i].button) {
+            // ... set the database entry for that key to true
+            console.log([i] + " is true");
+            database.ref().update({ [i]: true });
+        }
+    };
 });
 
-$(document).keydown(function () {
 
-    if (event.which == 87) {
-        database.ref().update({
-            cs4Value: true
-        });
-    }
-});
-$(document).keydown(function () {
-
-    if (event.which == 69) {
-        database.ref().update({
-            d4Value: true
-        });
-    }
-});
-
-$(document).keydown(function () {
-
-    if (event.which == 82) {
-        database.ref().update({
-            ds4Value: true
-        });
-    }
-});
-
-$(document).keydown(function () {
-    if (event.which == 84)
-        database.ref().update({
-            e4Value: true
-        });
-});
-
-$(document).keydown(function () {
-    if (event.which == 89)
-        database.ref().update({
-            f4Value: true
-        });
-});
-
-$(document).keydown(function () {
-    if (event.which == 85)
-        database.ref().update({
-            fs4Value: true
-        });
-});
-
-$(document).keydown(function () {
-    if (event.which == 73)
-        database.ref().update({
-            g4Value: true
-        });
-});
-
-$(document).keydown(function () {
-    if (event.which == 79)
-        database.ref().update({
-            gs4Value: true
-        });
-});
-
-$(document).keydown(function () {
-    if (event.which == 80)
-        database.ref().update({
-            a4Value: true
-        });
-});
-
-$(document).keydown(function () {
-    if (event.which == 219)
-        database.ref().update({
-            as4Value: true
-        });
-});
-
-$(document).keydown(function () {
-    if (event.which == 221)
-        database.ref().update({
-            b4Value: true
-        });
-});
-
-$(document).keydown(function () {
-
-    if (event.which == 220)
-        database.ref().update({
-            c5Value: true
-        });
-});
-
+// function for keyupevents
 $(document).keyup(function () {
-    if (event.which == 81) {
-        database.ref().update({
-            c4Value: false
-        });
-    }
+    // variable is set to the numeric value of the particular key up
+    var whichKey = event.which;
+    // runs a loop over each object in the array
+    for (var i in key) {
+        // if the button value of the object matches the value of the key pressed ...
+        if (whichKey == key[i].button) {
+            // ... set the database entry for that key to false
+            console.log([i] + " is false");
+            database.ref().update({ [i]: false });
+        }
+    };
 });
 
-$(document).keyup(function () {
-
-    if (event.which == 87) {
-        database.ref().update({
-            cs4Value: false
-        });
-    }
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 69) {
-        database.ref().update({
-            d4Value: false
-        });
-    }
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 82) {
-        database.ref().update({
-            ds4Value: false
-        });
-    }
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 84)
-        database.ref().update({
-            e4Value: false
-        });
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 89)
-        database.ref().update({
-            f4Value: false
-        });
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 85)
-        database.ref().update({
-            fs4Value: false
-        });
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 73)
-        database.ref().update({
-            g4Value: false
-        });
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 79)
-        database.ref().update({
-            gs4Value: false
-        });
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 80)
-        database.ref().update({
-            a4Value: false
-        });
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 219)
-        database.ref().update({
-            as4Value: false
-        });
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 221)
-        database.ref().update({
-            b4Value: false
-        });
-});
-
-$(document).keyup(function () {
-
-    if (event.which == 220)
-        database.ref().update({
-            c5Value: false
-        });
-});
-
+// function reports true or false and triggers a tone
+// check the firebase database for all values
 database.ref().on('value', function (snapshot) {
-
+    // creates a variable to hold all those values and some empty variables we'll need
     var notes = snapshot.val();
     var synthID = "";
     var value = false;
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values
-    for (var name in notes) {
-        synthID = key[name];
-        value = notes[name];
-        if (value){
+    // runs a loop over each object in the database
+    for (var i in notes) {
+        //sets a variable to the tone attribute from the array
+        synthID = key[i].tone;
+        console.log("this is the synthID: " + synthID);
+        //sets a variable to the boolean value from the database
+        value = notes[i];
+        console.log("this is the value: " + value);
+        // if the database reports back a true value the tone is triggered
+        if (value) {
             synth.triggerAttack(synthID);
         }
+        // if the database reports back a false value the tone is halted
         else {
             synth.triggerRelease(synthID);
         }
