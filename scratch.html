@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>instrument buttons minimal example</title>
+
+  <!-- pull Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <!-- pull JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Pull Tone.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.8/Tone.js" integrity="sha256-naTV/LhDwsz+OlK3sI09fOYfIIu1yy85XA8KS9skb7c="
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <h1>Dynamically Change Tones</h1>
+
+  <div class="container">
+    <div id="button-row" class="row">
+    </div>
+  </div>
+
+  <script>
+    var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
+    var synthChoices = [
+      "AMSynth", "FMSynth", "DuoSynth", "PolySynth", "PluckSynth", "Synth"
+    ];
+    var synthChoice;
+
+    function makeSynthChoices() {
+      for (j = 0; j < synthChoices.length; j++) {
+        $("#button-row").append(`
+          <div class="col-sm-2">
+            <button class="button btn" id="${synthChoices[j]}">${synthChoices[j]}</button>
+          </div>
+        `)
+      }
+    }
+
+    makeSynthChoices();
+
+    $(document).on("click", ".btn", function () {
+      synthChoice = $(this).attr("id");
+      synth = `new Tone.${synthChoice}(8, Tone.Synth).toMaster()`;
+      console.log(synthChoice);
+      console.log(synth);
+      synth.triggerAttackRelease("C4", "2n");
+    });
+
+  </script>
+
+</body>
+
+</html>

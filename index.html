@@ -18,11 +18,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.8/Tone.js" integrity="sha256-naTV/LhDwsz+OlK3sI09fOYfIIu1yy85XA8KS9skb7c="
     crossorigin="anonymous"></script>
 
-    <!-- pull Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- pull Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
 
-    <!-- pull Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Permanent+Marker" rel="stylesheet">
+  <!-- pull Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Permanent+Marker" rel="stylesheet">
 
   <!-- pull local CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -31,18 +32,18 @@
 </head>
 
 <body>
-      <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-4">JAMR<sup><i class="fas fa-music"></i></sup></h1>
-            <h2 class="cursive">a collaborative audiovisual experience</h2>
-          </div>
-        </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">JAMR<sup><i class="fas fa-music"></i></sup></h1>
+      <h2 class="cursive">a collaborative audiovisual experience</h2>
+    </div>
+  </div>
 
-        <div class="container">
+  <div class="container">
     <div id="keyboard">
-    <ul class="set">
-      <!-- uncomment below for an octave below the middle octave -->
-    <!-- <li class="white c" data-key="C3" id="c3"></li>
+      <ul class="set">
+        <!-- uncomment below for an octave below the middle octave -->
+        <!-- <li class="white c" data-key="C3" id="c3"></li>
     <li class="black cs" data-key="C#3" id="cs3"></li>
     <li class="white d" data-key="D3" id="d3"></li>
     <li class="black ds" data-key="D#3" id="ds3"></li>
@@ -55,34 +56,58 @@
     <li class="black as" data-key="A#3" id="as3"></li>
     <li class="white b" data-key="B3" id="b3"></li> -->
 
-    <!-- middle octvave -->
-    <li class="white c" data-key="C4" id="c4"></li>
-    <li class="black cs" data-key="C#4" id="cs4"></li>
-    <li class="white d" data-key="D4" id="d4"></li>
-    <li class="black ds" data-key="D#4" id="ds4"></li>
-    <li class="white e" data-key="E4" id="e4"></li>
-    <li class="white f" data-key="F4" id="f4"></li>
-    <li class="black fs" data-key="F#4" id="fs4"></li>
-    <li class="white g" data-key="G4" id="g4"></li>
-    <li class="black gs" data-key="G#4" id="gs4"></li>
-    <li class="white a" data-key="A4" id="a4"></li>
-    <li class="black as" data-key="A#4" id="as4"></li>
-    <li class="white b" data-key="B4" id="b4"></li>
+        <!-- middle octvave -->
+        <li class="white c" data-key="C4" id="c4"></li>
+        <li class="black cs" data-key="C#4" id="cs4"></li>
+        <li class="white d" data-key="D4" id="d4"></li>
+        <li class="black ds" data-key="D#4" id="ds4"></li>
+        <li class="white e" data-key="E4" id="e4"></li>
+        <li class="white f" data-key="F4" id="f4"></li>
+        <li class="black fs" data-key="F#4" id="fs4"></li>
+        <li class="white g" data-key="G4" id="g4"></li>
+        <li class="black gs" data-key="G#4" id="gs4"></li>
+        <li class="white a" data-key="A4" id="a4"></li>
+        <li class="black as" data-key="A#4" id="as4"></li>
+        <li class="white b" data-key="B4" id="b4"></li>
 
-    <!-- octave above middle octave -->
-    <li class="white c" data-key="C5" id="c5"></li>
-    </ul>
+        <!-- octave above middle octave -->
+        <li class="white c" data-key="C5" id="c5"></li>
+      </ul>
     </div>
 
-    </div>
+  </div>
 
-    <div id = "footer" class="cursive">
-        &copy; David, James, Jeremy, & Renée 2018
-        <br>
-        <a href ="https://reneegrinnell.github.io/GroupProject1/">GitHub</a>
+  <!-- Buttons to select different synth tones -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <button class="button btn" id="tone-1">Tone 1</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="button btn" id="tone-2">Tone 2</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="button btn" id="tone-3">Tone 3</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="button btn" id="tone-4">Tone 4</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="button btn" id="tone-5">Tone 5</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="button btn" id="tone-6">Tone 6</button>
+      </div>
     </div>
+  </div>
 
-<!-- pull Firebse -->
+  <div id="footer" class="cursive">
+    &copy; David, James, Jeremy, & Renée 2018
+    <br>
+    <a href="https://reneegrinnell.github.io/GroupProject1/">GitHub</a>
+  </div>
+
+  <!-- pull Firebse -->
   <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
   <!-- pull local JavaScript -->
   <script src="assets/javascript/javascript.js"></script>
