@@ -1,6 +1,5 @@
-# JAMR
-## a collaborative audiovisual experience
-JAMR is a collaborative music-making application. It makes use of Firebase and the Web Audio (via tone.js) and Bandsintown APIs. Users operate the one-octave keyboard from the QWERTY row of their computer keyboard.
+## JAMR: a collaborative audiovisual experience
+JAMR is a collaborative music-making application. It makes use of Firebase, and the Web Audio (via tone.js) and Bandsintown APIs. Users operate the one-octave virtual piano keyboard from the QWERTY row of their computer keyboard. [Check it out here](https://reneegrinnell.github.io/GroupProject1/)!
 
 ### Technologies Used
 * HTML
@@ -12,7 +11,7 @@ JAMR is a collaborative music-making application. It makes use of Firebase and t
 * The tone.js framework, which uses the Web Audio API: https://tonejs.github.io/
 * The Bandsintown API: https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0
 
-# Contributors
+### Contributors
 * [David](https://github.com/dbstocker)
 * [James](https://github.com/wingojt)
 * [Jeremy](https://github.com/JeremyHancock)
