@@ -19,5 +19,6 @@ JAMR is a collaborative music-making application. It makes use of Firebase, and 
 
 ### Credits
 * Major thanks to our TAs [Dominique](https://github.com/dmeeks91) and [Dillon](https://github.com/DillonSykes) for their help!
+* Free background image by Leo Wieling on [Unsplash](https://unsplash.com/photos/Sby_GQz1-5E?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 * CSS Piano Keyboard Pen very lightly adapted from David Zastrow's CodePen: https://codepen.io/zastrow/pen/oDBki
 * Instrument sound library from Nicholaus Brosowsky: https://github.com/nbrosowsky/tonejs-instruments
