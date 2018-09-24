@@ -18,6 +18,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.8/Tone.js" integrity="sha256-naTV/LhDwsz+OlK3sI09fOYfIIu1yy85XA8KS9skb7c="
     crossorigin="anonymous"></script>
 
+  <style>
+    .button {
+      margin: 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -31,7 +36,7 @@
   <script>
     var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
     var synthChoices = [
-      "AMSynth", "FMSynth", "DuoSynth", "PolySynth", "PluckSynth", "Synth"
+      "AMSynth", "FMSynth", "DuoSynth", "PolySynth", "Synth"
     ];
     var synthChoice;
 
@@ -49,11 +54,30 @@
 
     $(document).on("click", ".btn", function () {
       synthChoice = $(this).attr("id");
-      synth = `new Tone.${synthChoice}(8, Tone.Synth).toMaster()`;
+      // synth = `new Tone.${synthChoice}(8, Tone.Synth).toMaster()`;
+      changeVoice();
       console.log(synthChoice);
       console.log(synth);
       synth.triggerAttackRelease("C4", "2n");
     });
+
+function changeVoice() {
+  if (synthChoice == "AMSynth") {
+    synth = new Tone.AMSynth(8, Tone.Synth).toMaster();
+  }
+  else if (synthChoice == "FMSynth") {
+    synth = new Tone.FMSynth(8, Tone.Synth).toMaster();
+  }
+  else if (synthChoice == "DuoSynth") {
+    synth = new Tone.DuoSynth(8, Tone.Synth).toMaster();
+  }
+  else if (synthChoice == "PolySynth") {
+    synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
+  }
+  else {
+    synth = new Tone.Synth(8, Tone.Synth).toMaster();
+  }
+}
 
   </script>
 

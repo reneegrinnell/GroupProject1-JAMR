@@ -137,3 +137,7 @@ fas {
 .marker {
   font-family: 'Permanent Marker', cursive;
 }
+
+.button {
+  margin: 5px;
+}
