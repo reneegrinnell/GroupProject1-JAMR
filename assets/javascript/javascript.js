@@ -1,3 +1,44 @@
+////////////////  BANDSINTOWN //////////////// 
+
+// Bandsintown search function
+function searchBandsInTown(artist) {
+
+    // Query to Bandsintown API for user's choice of artist
+    var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+
+      // Print object to console
+      console.log(response);
+
+      // Creating HTML with artist info
+      var artistName = $("<h1>").text(response.name);
+      var artistURL = $("<a>").attr("href", response.url).append(artistName);
+      var artistImage = $("<img>").attr("src", response.thumb_url);
+      var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
+      var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
+
+      // Empty old contents from artist-div, append new artist content
+      $("#artist-div").empty();
+      $("#artist-div").append(artistURL, artistImage, upcomingEvents, goToArtist);
+    });
+  }
+
+  // Event handler for user clicking the select-artist button
+  $("#select-artist").on("click", function(event) {
+    // Preventing the button from trying to submit the form
+    event.preventDefault();
+    // Storing artist's name
+    var inputArtist = $("#artist-input").val().trim();
+
+    // Running the searchBandsInTown function, passing in artist input as an argument
+    searchBandsInTown(inputArtist);
+  });
+
+////////////////  FIREBASE //////////////// 
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyCLdyLwb0Ph9vZjGfFU3UVS1-JWy2capb4",
