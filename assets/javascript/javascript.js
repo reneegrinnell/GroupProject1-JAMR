@@ -12,13 +12,14 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-//create a synth and connect it to the master output (your speakers)
-// var synth = new Tone.DuoSynth(8, Tone.Synth).toMaster();
+// create a synth and connect it to the master output (your speakers)
+var synth = new Tone.DuoSynth(8, Tone.Synth).toMaster();
 
 // var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
 var synthChoices = ["AMSynth", "FMSynth", "DuoSynth", "PolySynth", "Synth"];
 var synthChoice;
 
+// create buttons to change the synth sound
 function makeSynthChoices() {
   for (j = 0; j < synthChoices.length; j++) {
     $("#button-row").append(`
@@ -36,12 +37,14 @@ makeSynthChoices();
 $(document).on("click", ".btn", function() {
   synthChoice = $(this).attr("id");
   // synth = `new Tone.${synthChoice}(8, Tone.Synth).toMaster()`;
-//   changeVoice();
+  changeVoice();
   console.log(synthChoice);
+  console.log("Current Synth: " + synth);
   console.log(synth);
-//   synth.triggerAttackRelease("C4", "2n");
+  //   synth.triggerAttackRelease("C4", "2n");
 });
 
+// logic that causes button clicks to set synth sound to a different sound
 function changeVoice() {
   if (synthChoice == "AMSynth") {
     synth = new Tone.AMSynth(8, Tone.Synth).toMaster();
