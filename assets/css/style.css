@@ -170,3 +170,7 @@ a {
   color: #fff;
   font-size: 1.25em;
 }
+
+.button {
+  margin: 5px;
+}
