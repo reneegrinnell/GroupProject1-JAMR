@@ -309,3 +309,47 @@ database.ref().on("value", function(snapshot) {
     }
   }
 });
+
+// Javascript calling CSS animations! //
+
+$(document).keypress('keypress', function(f) {
+    if (f.which==81) {
+        $("#c4").addClass('li.keypress');
+    }
+    if (f.which==87) {
+        $("#cs4").addClass('li.keypress');
+    }
+    if (f.which==69) {
+        $("#d4").addClass('li.keypress');
+    }
+    if (f.which==82) {
+        $("#ds4").addClass('li.keypress');
+    }
+    if (f.which==84) {
+        $("#e4").addClass('li.keypress');
+    }
+    if (f.which==89) {
+        $("#f4").addClass('li.keypress');
+    }
+    if (f.which==85) {
+        $("#fs4").addClass('li.keypress');
+    }
+    if (f.which==73) {
+        $("#g4").addClass('li.keypress');
+    }
+    if (f.which==79) {
+        $("#gs4").addClass('li.keypress');
+    }
+    if (f.which==80) {
+        $("#a4").addClass('li.keypress');
+    }
+    if (f.which==219) {
+        $("#as4").addClass('li.keypress');
+    }
+    if (f.which==221) {
+        $("#b4").addClass('li.keypress');
+    }
+    if (f.which==220) {
+        $("#c5").addClass('li.keypress');
+    }
+});

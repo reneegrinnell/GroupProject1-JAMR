@@ -1,7 +1,39 @@
-.key-active {
-  background-color: rgba(10, 112, 255, 0.806);
-  height: 105%;
-  width: 105%;
+/* the keyPress animation */
+
+@keyframes keyPress {
+  0% {
+    opacity: 1;
+    transform: scale(0.98);
+  }
+  40% {
+    transform: scale(0.91);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(0.97);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Webkit syntax added for compatability */
+/* li:active is for mouse clicks */
+
+li:active {
+  -webkit-animation-duration: 6s;
+  animation-duration: 6s;
+  -webkit-animation-name: keyPress;
+  animation-name: keyPress;
+}
+
+.li-keypress {
+  width: 90%;
+  height: 90%;
+  opacity: 85%;
+  animation-name: keyPress 6s;
 }
 
 /* KEYBOARD STYLING FROM CODEPEN */
