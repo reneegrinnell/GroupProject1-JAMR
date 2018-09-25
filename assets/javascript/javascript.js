@@ -3,39 +3,39 @@
 // Bandsintown search function
 function searchBandsInTown(artist) {
 
-    // Query to Bandsintown API for user's choice of artist
-    var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
+  // Query to Bandsintown API for user's choice of artist
+  var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
 
-      // Print object to console
-      console.log(response);
+    // Print object to console
+    console.log(response);
 
-      // Creating HTML with artist info
-      var artistName = $("<h1>").text(response.name);
-      var artistURL = $("<a>").attr("href", response.url).append(artistName);
-      var artistImage = $("<img>").attr("src", response.thumb_url);
-      var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
-      var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
+    // Creating HTML with artist info
+    var artistName = $("<h1>").text(response.name);
+    var artistURL = $("<a>").attr("href", response.url).append(artistName);
+    var artistImage = $("<img>").attr("src", response.thumb_url);
+    var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
+    var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
 
-      // Empty old contents from artist-div, append new artist content
-      $("#artist-div").empty();
-      $("#artist-div").append(artistURL, artistImage, upcomingEvents, goToArtist);
-    });
-  }
-
-  // Event handler for user clicking the select-artist button
-  $("#select-artist").on("click", function(event) {
-    // Preventing the button from trying to submit the form
-    event.preventDefault();
-    // Storing artist's name
-    var inputArtist = $("#artist-input").val().trim();
-
-    // Running the searchBandsInTown function, passing in artist input as an argument
-    searchBandsInTown(inputArtist);
+    // Empty old contents from artist-div, append new artist content
+    $("#artist-div").empty();
+    $("#artist-div").append(artistURL, artistImage, upcomingEvents, goToArtist);
   });
+}
+
+// Event handler for user clicking the select-artist button
+$("#select-artist").on("click", function (event) {
+  // Preventing the button from trying to submit the form
+  event.preventDefault();
+  // Storing artist's name
+  var inputArtist = $("#artist-input").val().trim();
+
+  // Running the searchBandsInTown function, passing in artist input as an argument
+  searchBandsInTown(inputArtist);
+});
 
 ////////////////  FIREBASE //////////////// 
 
@@ -65,9 +65,7 @@ function makeSynthChoices() {
   for (j = 0; j < synthChoices.length; j++) {
     $("#button-row").append(`
           <div class="col-sm-2">
-            <button class="button btn" id="${synthChoices[j]}">${
-      synthChoices[j]
-    }</button>
+            <button class="button btn" id="${synthChoices[j]}">${synthChoices[j]}</button>
           </div>
         `);
   }
@@ -75,7 +73,7 @@ function makeSynthChoices() {
 
 makeSynthChoices();
 
-$(document).on("click", ".btn", function() {
+$(document).on("click", ".btn", function () {
   synthChoice = $(this).attr("id");
   // synth = `new Tone.${synthChoice}(8, Tone.Synth).toMaster()`;
   changeVoice();
@@ -254,7 +252,7 @@ var key = {
 };
 
 // function for keydown events
-$(document).keydown(function() {
+$(document).keydown(function () {
   // variable is set to the numeric value of the particular key pressed
   var whichKey = event.which;
   // runs a loop over each object in the array
@@ -269,7 +267,7 @@ $(document).keydown(function() {
 });
 
 // function for keyupevents
-$(document).keyup(function() {
+$(document).keyup(function () {
   // variable is set to the numeric value of the particular key up
   var whichKey = event.which;
   // runs a loop over each object in the array
@@ -285,7 +283,7 @@ $(document).keyup(function() {
 
 // function reports true or false and triggers a tone
 // check the firebase database for all values
-database.ref().on("value", function(snapshot) {
+database.ref().on("value", function (snapshot) {
   // creates a variable to hold all those values and some empty variables we'll need
   var notes = snapshot.val();
   var synthID = "";
@@ -295,10 +293,10 @@ database.ref().on("value", function(snapshot) {
   for (var i in notes) {
     //sets a variable to the tone attribute from the array
     synthID = key[i].tone;
-    console.log("this is the synthID: " + synthID);
+    // console.log("this is the synthID: " + synthID);
     //sets a variable to the boolean value from the database
     value = notes[i];
-    console.log("this is the value: " + value);
+    // console.log("this is the value: " + value);
     // if the database reports back a true value the tone is triggered
     if (value) {
       synth.triggerAttack(synthID);
