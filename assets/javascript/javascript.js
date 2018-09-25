@@ -54,7 +54,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // create a synth and connect it to the master output (your speakers)
-var synth = new Tone.DuoSynth(8, Tone.Synth).toMaster();
+var synth = new Tone.Synth(8, Tone.Synth).toMaster();
 
 // var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
 var synthChoices = ["AMSynth", "FMSynth", "DuoSynth", "PolySynth", "Synth"];
