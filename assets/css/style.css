@@ -116,7 +116,7 @@ ul li:nth-child(13),
 /* Other styles */
 
 a {
-  color: #fff !important;
+  color: #fff;
 }
 
 .jumbotron {
@@ -160,7 +160,8 @@ a {
   border: 1px solid #bbb;
   border-radius: 2px;
   margin-top: 16px;
-  padding: 2px;
+  margin-left: 16px;
+  padding-left: 24px;
   border-left: 1px solid rgb(82, 82, 82);
   border-bottom: 1px solid rgb(67, 67, 67);
   border-radius: 0 0 5px 5px;
@@ -196,6 +197,11 @@ a {
   color: #fff;
   text-emphasis: bold;
   border-radius: 6px;
+}
+
+#artist-div a {
+  color: rgb(30, 0, 255);
+  text-align: left;
 }
 
 #footer {
