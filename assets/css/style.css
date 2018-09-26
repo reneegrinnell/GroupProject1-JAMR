@@ -4,9 +4,12 @@
 }
 
 body {
-  margin: 0;
-  background: #fff;
+  /* margin: 0; */
+  background: black;
   background-image: url(../images/leo-wieling-739185-unsplash.jpg);
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
 }
 
 set {
@@ -32,12 +35,16 @@ set {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset,
     0 1px rgba(212, 152, 125, 0.2) inset, 0 5px 15px rgba(0, 0, 0, 0.5);
 }
+
 li {
   margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
   float: left;
+  text-align: center;
+  font-size: 10px;
+  line-height: 144px;
 }
 
 ul .white {
@@ -51,6 +58,9 @@ ul .white {
     0 0 3px rgba(0, 0, 0, 0.2);
   background: linear-gradient(top, #eee 0%, #fff 100%);
   background-color: #fff;
+  /* uncomment below if we want the white key labels to be lower */
+  /* line-height: 200px; */
+
 }
 
 ul .white:active {
@@ -63,6 +73,7 @@ ul .white:active {
 }
 
 .black {
+  color: white;
   height: 9.25em;
   width: 2em;
   margin: 0 0 0 -1em;
