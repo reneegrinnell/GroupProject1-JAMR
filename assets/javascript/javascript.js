@@ -54,7 +54,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // create a synth and connect it to the master output (your speakers)
-var synth = new Tone.DuoSynth(8, Tone.Synth).toMaster();
+var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
 
 // var synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
 var synthChoices = ["AMSynth", "FMSynth", "DuoSynth", "PolySynth", "Synth"];
@@ -78,7 +78,7 @@ $(document).on("click", ".btn", function () {
   // synth = `new Tone.${synthChoice}(8, Tone.Synth).toMaster()`;
   changeVoice();
   console.log(synthChoice);
-  console.log("Current Synth: " + synth);
+  console.log("Button Synth: " + synth);
   console.log(synth);
   //   synth.triggerAttackRelease("C4", "2n");
 });
@@ -86,15 +86,15 @@ $(document).on("click", ".btn", function () {
 // logic that causes button clicks to set synth sound to a different sound
 function changeVoice() {
   if (synthChoice == "AMSynth") {
-    synth = new Tone.AMSynth(8, Tone.Synth).toMaster();
+    synth = new Tone.PolySynth(8, Tone.AMSynth).toMaster();
   } else if (synthChoice == "FMSynth") {
-    synth = new Tone.FMSynth(8, Tone.Synth).toMaster();
+    synth = new Tone.PolySynth(8, Tone.FMSynth).toMaster();
   } else if (synthChoice == "DuoSynth") {
-    synth = new Tone.DuoSynth(8, Tone.Synth).toMaster();
+    synth = new Tone.PolySynth(8, Tone.DuoSynth).toMaster();
   } else if (synthChoice == "PolySynth") {
+    synth = new Tone.PolySynth(8, Tone.PolySynth).toMaster();
+  } else if (synthChoice == "Synth") {
     synth = new Tone.PolySynth(8, Tone.Synth).toMaster();
-  } else {
-    synth = new Tone.Synth(8, Tone.Synth).toMaster();
   }
 }
 
@@ -260,8 +260,10 @@ $(document).keydown(function () {
     // if the button value of the object matches the value of the key pressed ...
     if (whichKey == key[i].button) {
       // ... set the database entry for that key to true
-      console.log([i] + " is true");
+      // console.log([i] + " is true");
       database.ref().update({ [i]: true });
+      console.log("Keyup Synth: " + synth);
+      console.log(synth);
     }
   }
 });
@@ -275,8 +277,10 @@ $(document).keyup(function () {
     // if the button value of the object matches the value of the key pressed ...
     if (whichKey == key[i].button) {
       // ... set the database entry for that key to false
-      console.log([i] + " is false");
+      // console.log([i] + " is false");
       database.ref().update({ [i]: false });
+      console.log("Keydown Synth: " + synth);
+      console.log(synth);
     }
   }
 });
@@ -300,10 +304,17 @@ database.ref().on("value", function (snapshot) {
     // if the database reports back a true value the tone is triggered
     if (value) {
       synth.triggerAttack(synthID);
+      console.log("Scope 3:1 Synth: " + synth);
     }
     // if the database reports back a false value the tone is halted
     else {
       synth.triggerRelease(synthID);
+      console.log("Scope 3:2 Synth: " + synth);
     }
+    console.log("Scope 2 Synth: " + synth);
   }
+  console.log("Scope 1 Synth: " + synth);
 });
+
+console.log("Outside Synth: " + synth);
+console.log(synth);
