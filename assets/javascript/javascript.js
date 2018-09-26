@@ -64,7 +64,7 @@ var synthChoice;
 // create buttons to change the synth sound
 function makeSynthChoices() {
   for (j = 0; j < synthChoices.length; j++) {
-    $("#button-row").append(`
+    $("#button-col").append(`
           <div class="col-sm-2">
             <button class="button btn" id="${synthChoices[j]}">${synthChoices[j]}</button>
           </div>
