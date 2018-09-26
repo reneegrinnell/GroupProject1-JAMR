@@ -1,3 +1,4 @@
+
 ////////////////  BANDSINTOWN //////////////// 
 
 // Bandsintown search function
@@ -316,5 +317,162 @@ database.ref().on("value", function (snapshot) {
   console.log("Scope 1 Synth: " + synth);
 });
 
-console.log("Outside Synth: " + synth);
-console.log(synth);
+// animation //
+// key animates "downward" on keydown //
+$(document).keydown(function (f) {
+  if (f.which == 65) {
+    $("#c3").addClass("keypress");
+  };
+  if (f.which == 83) {
+    $("#cs3").addClass("keypress");
+  };
+  if (f.which == 68) {
+    $("#d3").addClass("keypress");
+  };
+  if (f.which == 70) {
+    $("#ds3").addClass("keypress");
+  };
+  if (f.which == 71) {
+    $("#e3").addClass("keypress");
+  };
+  if (f.which == 72) {
+    $("#f3").addClass("keypress");
+  };
+  if (f.which == 74) {
+    $("#fs3").addClass("keypress");
+  };
+  if (f.which == 75) {
+    $("#g3").addClass("keypress");
+  };
+  if (f.which == 76) {
+    $("#gs3").addClass("keypress");
+  };
+  if (f.which == 186) {
+    $("#a3").addClass("keypress");
+  };
+  if (f.which == 222) {
+    $("#as3").addClass("keypress");
+  };
+  if (f.which == 13) {
+    $("#b3").addClass("keypress");
+  };
+  if (f.which == 81) {
+    $("#c4").addClass("keypress");
+  };
+  if (f.which == 87) {
+    $("#cs4").addClass("keypress");
+  };
+  if (f.which == 69) {
+    $("#d4").addClass("keypress");
+  };
+  if (f.which == 82) {
+    $("#ds4").addClass("keypress");
+  };
+  if (f.which == 84) {
+    $("#e4").addClass("keypress");
+  };
+  if (f.which == 89) {
+    $("#f4").addClass("keypress");
+  };
+  if (f.which == 85) {
+    $("#fs4").addClass("keypress");
+  };
+  if (f.which == 73) {
+    $("#g4").addClass("keypress");
+  };
+  if (f.which == 79) {
+    $("#gs4").addClass("keypress");
+  };
+  if (f.which == 80) {
+    $("#a4").addClass("keypress");
+  };
+  if (f.which == 219) {
+    $("#as4").addClass("keypress");
+  };
+  if (f.which == 221) {
+    $("#b4").addClass("keypress");
+  };
+  if (f.which == 220) {
+    $("#c5").addClass("keypress");
+  };
+});
+
+// return key to normal on keyup //
+$(document).keyup(function (g) {
+
+  if (g.which == 65) {
+    $("#c3").removeClass("keypress");
+  };
+  if (g.which == 83) {
+    $("#cs3").removeClass("keypress");
+  };
+  if (g.which == 68) {
+    $("#d3").removeClass("keypress");
+  };
+  if (g.which == 70) {
+    $("#ds3").removeClass("keypress");
+  };
+  if (g.which == 71) {
+    $("#e3").removeClass("keypress");
+  };
+  if (g.which == 72) {
+    $("#f3").removeClass("keypress");
+  };
+  if (g.which == 74) {
+    $("#fs3").removeClass("keypress");
+  };
+  if (g.which == 75) {
+    $("#g3").removeClass("keypress");
+  };
+  if (g.which == 76) {
+    $("#gs3").removeClass("keypress");
+  };
+  if (g.which == 186) {
+    $("#a3").removeClass("keypress");
+  };
+  if (g.which == 222) {
+    $("#as3").removeClass("keypress");
+  };
+  if (g.which == 13) {
+    $("#b3").removeClass("keypress");
+  };
+  if (g.which == 81) {
+    $("#c4").removeClass("keypress");
+  };
+  if (g.which == 87) {
+    $("#cs4").removeClass("keypress");
+  };
+  if (g.which == 69) {
+    $("#d4").removeClass("keypress");
+  };
+  if (g.which == 82) {
+    $("#ds4").removeClass("keypress");
+  };
+  if (g.which == 84) {
+    $("#e4").removeClass("keypress");
+  };
+  if (g.which == 89) {
+    $("#f4").removeClass("keypress");
+  };
+  if (g.which == 85) {
+    $("#fs4").removeClass("keypress");
+  };
+  if (g.which == 73) {
+    $("#g4").removeClass("keypress");
+  };
+  if (g.which == 79) {
+    $("#gs4").removeClass("keypress");
+  };
+  if (g.which == 80) {
+    $("#a4").removeClass("keypress");
+  };
+  if (g.which == 219) {
+    $("#as4").removeClass("keypress");
+  };
+  if (g.which == 221) {
+    $("#b4").removeClass("keypress");
+  };
+  if (g.which == 220) {
+    $("#c5").removeClass("keypress");
+  };
+});
