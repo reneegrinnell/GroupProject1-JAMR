@@ -213,7 +213,8 @@ a {
 }
 
 .button {
-  margin: 5px;
+  width: 100px;
+  margin-bottom: 5px;
 }
 
 /* added a little button:active goodness for those synth buttons */
